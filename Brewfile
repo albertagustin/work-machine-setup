@@ -20,6 +20,7 @@ brew "fnm"            # Fast Node version manager
 brew "bat"            # Syntax-highlighted cat replacement
 brew "ripgrep"        # Fast grep replacement (rg)
 brew "eza"            # Modern ls replacement
+brew "mas"            # Mac App Store CLI
 
 # Fonts
 cask "font-fira-code-nerd-font"  # Nerd Font for terminal/editor icons
@@ -36,3 +37,7 @@ cask "rancher"             # Rancher Desktop (container runtime + k8s)
 cask "alfred"              # Spotlight replacement
 cask "dropbox"             # Cloud storage & file sync
 cask "obsidian"            # Knowledge base / work journal
+cask "logi-options+"       # Logitech Options+ (mouse/keyboard customization)
+
+# Mac App Store
+mas "Amphetamine", id: 937984704  # Keep screen awake
