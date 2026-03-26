@@ -2,7 +2,7 @@
 
 ## High Priority
 
-- [ ] Setup AWS CLI — configure profiles, SSO login, and connect to all work EKS clusters
+- [x] Setup AWS CLI — configure profiles, SSO login, and connect to all work EKS clusters
 - [x] Install GitHub Copilot CLI
 - [ ] Clone work repos:
   - [x] fastpass
@@ -27,5 +27,5 @@
 - [ ] Add VSCode extensions to Brewfile — `brew bundle` supports `vscode "extension.id"` entries, so extensions can be version-controlled and auto-installed
 - [ ] Add a `scripts/macos.sh` — automate macOS system preferences (trackpad speed, key repeat rate, Finder settings, etc.) so they don't need to be manually configured each time
 - [ ] Setup Warp config — Warp stores its settings in `~/.warp/`, which is already symlinked; add your theme and workflow configs there
-- [ ] Update Obsidian vault `.gitignore` — track portable settings (app.json, hotkeys.json) but ignore machine-specific files (workspace.json)
+- [x] Update Obsidian vault `.gitignore` — track portable settings (app.json, hotkeys.json) but ignore machine-specific files (workspace.json)
 - [ ] Setup `gh` as git credential helper — so HTTPS operations don't prompt for auth

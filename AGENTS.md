@@ -50,10 +50,13 @@ configs/
   vscode/settings.json         # VSCode settings (symlinked)
   vscode/keybindings.json      # VSCode keybindings (symlinked)
   claude/settings.json         # Claude Code settings (symlinked to ~/.claude/settings.json)
+  mcp/.mcp.json                # MCP server config for Claude Code / Copilot CLI
+  vscode/mcp.json              # MCP server config for VS Code Copilot
   warp/                        # Warp terminal configs (symlinked to ~/.warp)
 docs/
   TODO.md                      # Pending setup tasks and recommendations
   MANUAL_SETUP.md              # Manual steps for new machine provisioning
+  TELEMETRY.md                 # Org-level AI telemetry gap analysis
 telemetry/
   deploy.sh                    # Deploy full telemetry stack
   teardown.sh                  # Tear down full telemetry stack

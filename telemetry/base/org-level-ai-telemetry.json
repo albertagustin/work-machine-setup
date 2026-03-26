@@ -1,0 +1,585 @@
+{
+  "id": null,
+  "uid": "org-level-ai-telemetry",
+  "title": "Org-level AI Telemetry",
+  "tags": [
+    "ai",
+    "telemetry",
+    "org-level",
+    "otel"
+  ],
+  "timezone": "browser",
+  "schemaVersion": 39,
+  "version": 1,
+  "refresh": "30s",
+  "time": {
+    "from": "now-3h",
+    "to": "now"
+  },
+  "templating": {
+    "list": [
+      {
+        "name": "agent",
+        "type": "custom",
+        "label": "Agent",
+        "query": "claude-code,github-copilot,copilot-chat,all",
+        "current": {
+          "text": "all",
+          "value": "all"
+        },
+        "includeAll": false
+      },
+      {
+        "name": "model",
+        "type": "query",
+        "label": "Model",
+        "datasource": {
+          "uid": "PBFA97CFB590B2093",
+          "type": "prometheus"
+        },
+        "query": "label_values(claude_code_token_usage_tokens_total, model)",
+        "refresh": 2,
+        "includeAll": true,
+        "current": {
+          "text": "All",
+          "value": "$__all"
+        }
+      }
+    ]
+  },
+  "annotations": {
+    "list": []
+  },
+  "panels": [
+    {
+      "type": "row",
+      "title": "📋 Task Initiation",
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 0 },
+      "collapsed": false
+    },
+    {
+      "type": "stat",
+      "title": "Total Sessions (proxy: tasks)",
+      "description": "Sessions act as a proxy for tasks until explicit task IDs are captured.",
+      "gridPos": { "h": 4, "w": 4, "x": 0, "y": 1 },
+      "datasource": { "uid": "PBFA97CFB590B2093", "type": "prometheus" },
+      "targets": [
+        {
+          "expr": "sum(claude_code_session_count_total) + sum(copilot_chat_session_count_total)",
+          "refId": "A"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "thresholds": {
+            "steps": [
+              { "color": "blue", "value": null }
+            ]
+          }
+        }
+      },
+      "options": { "colorMode": "value", "graphMode": "area" }
+    },
+    {
+      "type": "stat",
+      "title": "🔲 Task ID Coverage",
+      "description": "PLACEHOLDER — Percentage of sessions linked to a Jira ticket, PR, or spec. Requires instrumentation: emit task_id as a span attribute or log field at session start.",
+      "gridPos": { "h": 4, "w": 4, "x": 4, "y": 1 },
+      "datasource": { "uid": "PBFA97CFB590B2093", "type": "prometheus" },
+      "targets": [
+        {
+          "expr": "0",
+          "refId": "A"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent",
+          "noValue": "N/A — not yet instrumented",
+          "thresholds": {
+            "steps": [
+              { "color": "dark-red", "value": null },
+              { "color": "yellow", "value": 50 },
+              { "color": "green", "value": 90 }
+            ]
+          }
+        }
+      },
+      "options": { "colorMode": "value", "graphMode": "none" }
+    },
+    {
+      "type": "stat",
+      "title": "🔲 Task Type Breakdown",
+      "description": "PLACEHOLDER — Count of tasks by type (feature, bug fix, refactor, test gen, docs, etc.). Requires: task_type label emitted at session start.",
+      "gridPos": { "h": 4, "w": 4, "x": 8, "y": 1 },
+      "datasource": { "uid": "PBFA97CFB590B2093", "type": "prometheus" },
+      "targets": [
+        {
+          "expr": "0",
+          "refId": "A"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "noValue": "N/A — not yet instrumented"
+        }
+      },
+      "options": { "colorMode": "value", "graphMode": "none" }
+    },
+    {
+      "type": "piechart",
+      "title": "Agent Distribution",
+      "description": "Which AI agent handled each session. Based on OTEL service_name.",
+      "gridPos": { "h": 8, "w": 6, "x": 12, "y": 1 },
+      "datasource": { "uid": "PBFA97CFB590B2093", "type": "prometheus" },
+      "targets": [
+        {
+          "expr": "sum(claude_code_session_count_total)",
+          "refId": "A",
+          "legendFormat": "Claude Code"
+        },
+        {
+          "expr": "sum(copilot_chat_session_count_total)",
+          "refId": "B",
+          "legendFormat": "Copilot VS Code"
+        }
+      ],
+      "options": {
+        "legend": {
+          "displayMode": "table",
+          "placement": "right",
+          "values": ["value", "percent"]
+        }
+      }
+    },
+    {
+      "type": "stat",
+      "title": "Input Context (tokens in)",
+      "description": "Total input tokens across all agents — represents how much context/standards layer was leveraged.",
+      "gridPos": { "h": 4, "w": 6, "x": 18, "y": 1 },
+      "datasource": { "uid": "PBFA97CFB590B2093", "type": "prometheus" },
+      "targets": [
+        {
+          "expr": "sum(claude_code_token_usage_tokens_total{type=\"input\"})",
+          "refId": "A",
+          "legendFormat": "Claude Code"
+        },
+        {
+          "expr": "sum(gen_ai_client_token_usage_tokens{gen_ai_token_type=\"input\"})",
+          "refId": "B",
+          "legendFormat": "Copilot"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "thresholds": {
+            "steps": [
+              { "color": "blue", "value": null }
+            ]
+          }
+        }
+      },
+      "options": { "colorMode": "value", "graphMode": "area" }
+    },
+    {
+      "type": "text",
+      "title": "🔲 Human Initiator",
+      "description": "PLACEHOLDER — Who started the task. Requires: user identity emitted as span attribute (e.g., from git config user.email or SSO identity).",
+      "gridPos": { "h": 4, "w": 6, "x": 18, "y": 5 },
+      "options": {
+        "mode": "markdown",
+        "content": "**Not yet instrumented**\n\nRequires emitting `user.email` or SSO identity as a span/log attribute at session start.\n\nCapture point: workflow-autolog.sh or OTEL resource attributes."
+      }
+    },
+    {
+      "type": "row",
+      "title": "⚙️ During Execution",
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 9 },
+      "collapsed": false
+    },
+    {
+      "type": "timeseries",
+      "title": "API Calls Over Time",
+      "description": "Rate of API calls by model. Captured via OTEL Prometheus metrics.",
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 10 },
+      "datasource": { "uid": "PBFA97CFB590B2093", "type": "prometheus" },
+      "targets": [
+        {
+          "expr": "sum by (model) (rate(claude_code_token_usage_tokens_total{type=\"input\"}[5m])) * 300",
+          "refId": "A",
+          "legendFormat": "Claude Code — {{model}}"
+        },
+        {
+          "expr": "sum by (gen_ai_response_model) (rate(gen_ai_client_token_usage_tokens[5m])) * 300",
+          "refId": "B",
+          "legendFormat": "Copilot — {{gen_ai_response_model}}"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "custom": { "fillOpacity": 15 }
+        }
+      }
+    },
+    {
+      "type": "timeseries",
+      "title": "Token Usage (in vs out)",
+      "description": "Input and output tokens over time across all agents.",
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 10 },
+      "datasource": { "uid": "PBFA97CFB590B2093", "type": "prometheus" },
+      "targets": [
+        {
+          "expr": "sum by (type) (rate(claude_code_token_usage_tokens_total[5m])) * 300",
+          "refId": "A",
+          "legendFormat": "Claude Code — {{type}}"
+        },
+        {
+          "expr": "sum by (gen_ai_token_type) (rate(gen_ai_client_token_usage_tokens[5m])) * 300",
+          "refId": "B",
+          "legendFormat": "Copilot — {{gen_ai_token_type}}"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "custom": { "fillOpacity": 10 }
+        }
+      }
+    },
+    {
+      "type": "timeseries",
+      "title": "Tool Invocations Over Time",
+      "description": "Tool usage rate by tool name and decision (approved/denied). Captured via Claude Code OTEL metrics.",
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 18 },
+      "datasource": { "uid": "PBFA97CFB590B2093", "type": "prometheus" },
+      "targets": [
+        {
+          "expr": "sum by (tool_name) (rate(claude_code_code_edit_tool_decision_total[5m])) * 300",
+          "refId": "A",
+          "legendFormat": "{{tool_name}}"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "custom": { "fillOpacity": 10 }
+        }
+      }
+    },
+    {
+      "type": "timeseries",
+      "title": "Cost Burn Rate (USD)",
+      "description": "Rolling cost rate across all agents.",
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 18 },
+      "datasource": { "uid": "PBFA97CFB590B2093", "type": "prometheus" },
+      "targets": [
+        {
+          "expr": "sum by (model) (rate(claude_code_cost_usage_USD_total[5m])) * 300",
+          "refId": "A",
+          "legendFormat": "Claude Code — {{model}}"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "currencyUSD",
+          "custom": { "fillOpacity": 20 }
+        }
+      }
+    },
+    {
+      "type": "stat",
+      "title": "Total Cost (USD)",
+      "gridPos": { "h": 4, "w": 4, "x": 0, "y": 26 },
+      "datasource": { "uid": "PBFA97CFB590B2093", "type": "prometheus" },
+      "targets": [
+        {
+          "expr": "sum(claude_code_cost_usage_USD_total)",
+          "refId": "A"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "currencyUSD",
+          "thresholds": {
+            "steps": [
+              { "color": "green", "value": null },
+              { "color": "yellow", "value": 10 },
+              { "color": "red", "value": 50 }
+            ]
+          }
+        }
+      },
+      "options": { "colorMode": "value", "graphMode": "area" }
+    },
+    {
+      "type": "stat",
+      "title": "Wall-Clock Duration",
+      "description": "Total active time across sessions. Captured via Claude Code OTEL metric.",
+      "gridPos": { "h": 4, "w": 4, "x": 4, "y": 26 },
+      "datasource": { "uid": "PBFA97CFB590B2093", "type": "prometheus" },
+      "targets": [
+        {
+          "expr": "sum(claude_code_active_time_seconds_total)",
+          "refId": "A"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "s",
+          "thresholds": {
+            "steps": [
+              { "color": "orange", "value": null }
+            ]
+          }
+        }
+      },
+      "options": { "colorMode": "value", "graphMode": "area" }
+    },
+    {
+      "type": "stat",
+      "title": "🔲 Failures / Retries",
+      "description": "PLACEHOLDER — Count of intermediate failures and retries during execution. Requires: error/retry counter emitted as OTEL metric or extracted from tool_result logs.",
+      "gridPos": { "h": 4, "w": 4, "x": 8, "y": 26 },
+      "datasource": { "uid": "PBFA97CFB590B2093", "type": "prometheus" },
+      "targets": [
+        {
+          "expr": "0",
+          "refId": "A"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "noValue": "N/A — not yet instrumented",
+          "thresholds": {
+            "steps": [
+              { "color": "green", "value": null },
+              { "color": "yellow", "value": 3 },
+              { "color": "red", "value": 10 }
+            ]
+          }
+        }
+      },
+      "options": { "colorMode": "value", "graphMode": "none" }
+    },
+    {
+      "type": "stat",
+      "title": "🔲 Active Compute Duration",
+      "description": "PLACEHOLDER — Actual API processing time excluding human wait/review gaps. Requires: separate timer that pauses during human interaction. Could be derived from trace span durations.",
+      "gridPos": { "h": 4, "w": 4, "x": 12, "y": 26 },
+      "datasource": { "uid": "PBFA97CFB590B2093", "type": "prometheus" },
+      "targets": [
+        {
+          "expr": "0",
+          "refId": "A"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "s",
+          "noValue": "N/A — not yet instrumented"
+        }
+      },
+      "options": { "colorMode": "value", "graphMode": "none" }
+    },
+    {
+      "type": "logs",
+      "title": "Tool Results (Events)",
+      "description": "Raw tool invocation events from Loki. Includes file edits, bash commands, MCP calls.",
+      "gridPos": { "h": 8, "w": 8, "x": 16, "y": 26 },
+      "datasource": { "uid": "P8E80F9AEF21F6940", "type": "loki" },
+      "targets": [
+        {
+          "expr": "{service_name=~\"claude-code|github-copilot|copilot-chat\"} |= \"tool_result\"",
+          "refId": "A",
+          "queryType": "range"
+        }
+      ],
+      "options": {
+        "showTime": true,
+        "showLabels": true,
+        "showCommonLabels": false,
+        "wrapLogMessage": true,
+        "prettifyLogMessage": false,
+        "enableLogDetails": true,
+        "sortOrder": "Descending",
+        "dedupStrategy": "none"
+      }
+    },
+    {
+      "type": "row",
+      "title": "✅ Task Completion",
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 34 },
+      "collapsed": false
+    },
+    {
+      "type": "stat",
+      "title": "Lines Changed (Output Size)",
+      "description": "Total lines of code added and removed. Captured via Claude Code OTEL metric.",
+      "gridPos": { "h": 4, "w": 4, "x": 0, "y": 35 },
+      "datasource": { "uid": "PBFA97CFB590B2093", "type": "prometheus" },
+      "targets": [
+        {
+          "expr": "sum(claude_code_lines_of_code_count_total)",
+          "refId": "A"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "thresholds": {
+            "steps": [
+              { "color": "green", "value": null }
+            ]
+          }
+        }
+      },
+      "options": { "colorMode": "value", "graphMode": "area" }
+    },
+    {
+      "type": "stat",
+      "title": "Commits",
+      "description": "Total commits made by AI agents.",
+      "gridPos": { "h": 4, "w": 4, "x": 4, "y": 35 },
+      "datasource": { "uid": "PBFA97CFB590B2093", "type": "prometheus" },
+      "targets": [
+        {
+          "expr": "sum(claude_code_commit_count_total)",
+          "refId": "A"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "thresholds": {
+            "steps": [
+              { "color": "green", "value": null }
+            ]
+          }
+        }
+      },
+      "options": { "colorMode": "value", "graphMode": "area" }
+    },
+    {
+      "type": "timeseries",
+      "title": "Lines of Code (Added vs Removed)",
+      "description": "Output volume over time. Captures code churn and net output.",
+      "gridPos": { "h": 8, "w": 8, "x": 8, "y": 35 },
+      "datasource": { "uid": "PBFA97CFB590B2093", "type": "prometheus" },
+      "targets": [
+        {
+          "expr": "sum by (type) (rate(claude_code_lines_of_code_count_total[5m])) * 300",
+          "refId": "A",
+          "legendFormat": "{{type}}"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "custom": { "fillOpacity": 20 }
+        },
+        "overrides": [
+          {
+            "matcher": { "id": "byName", "options": "removed" },
+            "properties": [
+              { "id": "color", "value": { "fixedColor": "red", "mode": "fixed" } }
+            ]
+          },
+          {
+            "matcher": { "id": "byName", "options": "added" },
+            "properties": [
+              { "id": "color", "value": { "fixedColor": "green", "mode": "fixed" } }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "text",
+      "title": "🔲 Complexity Signals",
+      "description": "PLACEHOLDER — Number of files touched, services touched, tests generated per task.",
+      "gridPos": { "h": 4, "w": 4, "x": 16, "y": 35 },
+      "options": {
+        "mode": "markdown",
+        "content": "**Not yet instrumented**\n\n- Files touched per task\n- Services/repos touched\n- Tests generated count\n\nCapture point: workflow-autolog.sh already tracks `files_modified`. Extend to emit as OTEL metric with task_id label."
+      }
+    },
+    {
+      "type": "text",
+      "title": "🔲 Human Review Time",
+      "description": "PLACEHOLDER — Time from PR opened to approved. Measures human-in-the-loop cost.",
+      "gridPos": { "h": 4, "w": 4, "x": 20, "y": 35 },
+      "options": {
+        "mode": "markdown",
+        "content": "**Not yet instrumented**\n\nRequires: GitHub webhook or `gh` CLI polling to capture:\n- PR opened timestamp\n- PR approved timestamp\n- Delta = review time\n\nCapture point: GitHub Actions workflow or a cron job using `gh pr list --json`."
+      }
+    },
+    {
+      "type": "text",
+      "title": "🔲 Human Edits Post-AI",
+      "description": "PLACEHOLDER — Lines changed during human review after AI-generated PR.",
+      "gridPos": { "h": 4, "w": 4, "x": 16, "y": 39 },
+      "options": {
+        "mode": "markdown",
+        "content": "**Not yet instrumented**\n\nRequires: diff between AI's last commit and the merge commit.\n- Lines added/removed by human reviewers\n- Measures trust and quality\n\nCapture point: GitHub Actions post-merge hook comparing AI commit SHA vs merge SHA."
+      }
+    },
+    {
+      "type": "text",
+      "title": "🔲 Outcome (merged/rejected/reworked)",
+      "description": "PLACEHOLDER — Final disposition of AI-generated work.",
+      "gridPos": { "h": 4, "w": 4, "x": 20, "y": 39 },
+      "options": {
+        "mode": "markdown",
+        "content": "**Not yet instrumented**\n\nRequires: PR lifecycle events:\n- `merged` — accepted as-is or with minor edits\n- `rejected` — PR closed without merge\n- `reworked` — significant human changes before merge\n\nCapture point: GitHub webhook on PR close event, or periodic `gh pr list --state closed --json`."
+      }
+    },
+    {
+      "type": "row",
+      "title": "🔍 Traces & Events",
+      "gridPos": { "h": 1, "w": 24, "x": 0, "y": 43 },
+      "collapsed": false
+    },
+    {
+      "type": "table",
+      "title": "Recent Traces",
+      "description": "Distributed traces from AI tool sessions.",
+      "gridPos": { "h": 8, "w": 24, "x": 0, "y": 44 },
+      "datasource": { "uid": "P214B5B846CF3925F", "type": "tempo" },
+      "targets": [
+        {
+          "query": "{resource.service.name =~ \"claude-code|github-copilot|copilot-chat\"}",
+          "refId": "A",
+          "queryType": "traceql",
+          "limit": 20
+        }
+      ]
+    },
+    {
+      "type": "logs",
+      "title": "Recent Events (All Agents)",
+      "description": "Raw log events from all AI agents via Loki.",
+      "gridPos": { "h": 8, "w": 24, "x": 0, "y": 52 },
+      "datasource": { "uid": "P8E80F9AEF21F6940", "type": "loki" },
+      "targets": [
+        {
+          "expr": "{service_name=~\"claude-code|github-copilot|copilot-chat\"}",
+          "refId": "A",
+          "queryType": "range"
+        }
+      ],
+      "options": {
+        "showTime": true,
+        "showLabels": true,
+        "showCommonLabels": false,
+        "wrapLogMessage": true,
+        "prettifyLogMessage": false,
+        "enableLogDetails": true,
+        "sortOrder": "Descending",
+        "dedupStrategy": "none"
+      }
+    }
+  ]
+}

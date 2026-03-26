@@ -12,6 +12,7 @@ configMapGenerator:
     namespace: observability
     files:
       - ai-tools-overview.json
+      - org-level-ai-telemetry.json
     options:
       labels:
         grafana_dashboard: "1"
