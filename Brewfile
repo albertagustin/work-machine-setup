@@ -1,6 +1,7 @@
 # CLI tools
 brew "starship"       # Terminal prompt customization
 brew "kubectl"        # Kubernetes CLI
+brew "kubectx"        # Fast k8s context and namespace switching (kubectx + kubens)
 brew "direnv"         # Per-directory environment variables (.envrc)
 brew "zsh"            # Homebrew-managed ZSH (replaces macOS system zsh)
 brew "git"            # Version control

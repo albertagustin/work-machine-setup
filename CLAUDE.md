@@ -24,6 +24,8 @@ configs/
   vscode/keybindings.json      # VSCode keybindings (symlinked)
   claude/settings.json         # Claude Code settings (symlinked to ~/.claude/settings.json)
   warp/                        # Warp terminal configs (symlinked to ~/.warp)
+docs/
+  TODO.md                      # Pending setup tasks and recommendations
 ```
 
 ## Adding a new tool
@@ -54,6 +56,8 @@ SSH keys are managed via the 1Password SSH agent. Host aliases:
 Personal repos must use `git@github.com-personal:` as the remote URL.
 
 ## Secrets
+
+**DO NOT COMMIT SECRETS — no API keys, tokens, passwords, or credentials should ever be committed to this repo, under any circumstances.**
 
 Secrets go in `.envrc` (gitignored). Copy `.envrc.example` as a starting point.
 They are loaded via direnv and also sourced in `.zshrc` on shell start.

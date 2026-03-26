@@ -34,8 +34,7 @@ if [ -f "$REPO_DIR/.envrc" ]; then
 fi
 
 # --- PATH additions ---
-# Add custom bin directories here as needed:
-# export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.rd/bin:$PATH"  # Rancher Desktop (docker, helm, nerdctl)
 
 # --- pyenv (Python version manager) ---
 export PYENV_ROOT="$HOME/.pyenv"
@@ -68,3 +67,4 @@ alias gco="git checkout"
 alias gb="git branch"
 alias gd="git diff"
 alias gds="git diff --staged"
+
