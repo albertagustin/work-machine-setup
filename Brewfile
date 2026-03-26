@@ -35,3 +35,4 @@ cask "claude"              # Claude desktop
 cask "rancher"             # Rancher Desktop (container runtime + k8s)
 cask "alfred"              # Spotlight replacement
 cask "dropbox"             # Cloud storage & file sync
+cask "obsidian"            # Knowledge base / work journal

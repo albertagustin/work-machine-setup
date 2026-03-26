@@ -1,6 +1,6 @@
-# Work Machine Setup
+# Work Machine Assistant
 
-Dotfiles and setup scripts for provisioning a macOS work machine.
+Dotfiles, setup scripts, and daily work tools for a macOS work machine.
 
 ## Structure
 

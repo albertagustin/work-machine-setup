@@ -1,6 +1,6 @@
 # ==============================================================================
 # Work Machine .zshrc
-# Managed via: https://github.com/albertagustin/work-machine-setup
+# Managed via: https://github.com/albertagustin/work-machine-assistant
 # ==============================================================================
 
 # --- Oh My Zsh ---
@@ -24,7 +24,7 @@ eval "$(starship init zsh)"
 eval "$(direnv hook zsh)"
 
 # --- Secrets (.envrc in repo root) ---
-REPO_DIR="$HOME/Dev/git/albertagustin/work-machine-setup"
+REPO_DIR="$HOME/Dev/git/albertagustin/work-machine-assistant"
 if [ -f "$REPO_DIR/.envrc" ]; then
   # direnv handles this automatically when you cd into the repo,
   # but we also source it at shell start for global availability.

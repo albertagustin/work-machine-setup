@@ -3,7 +3,6 @@
 ## High Priority
 
 - [ ] Setup AWS CLI — configure profiles, SSO login, and connect to all work EKS clusters
-- [ ] Setup unified MCP server config — single location for defining MCP servers shared across Copilot (VSCode + CLI) and Claude Code (VSCode + CLI)
 - [ ] Install GitHub Copilot CLI
 - [ ] Clone work repos:
   - [ ] fastpass

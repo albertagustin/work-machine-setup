@@ -1,6 +1,6 @@
-# Work Machine Setup
+# Work Machine Assistant
 
-Dotfiles and setup scripts for provisioning a macOS work machine. Run one script to install everything, symlink all configs, and be ready to go.
+Dotfiles, setup scripts, and daily work tools for a macOS work machine. Run one script to install everything, symlink all configs, and be ready to go.
 
 ## Prerequisites
 
@@ -11,8 +11,8 @@ Dotfiles and setup scripts for provisioning a macOS work machine. Run one script
 ## Quick Start
 
 ```bash
-git clone git@github.com-personal:albertagustin/work-machine-setup.git ~/Dev/git/albertagustin/work-machine-setup
-cd ~/Dev/git/albertagustin/work-machine-setup
+git clone git@github.com-personal:albertagustin/work-machine-assistant.git ~/Dev/git/albertagustin/work-machine-assistant
+cd ~/Dev/git/albertagustin/work-machine-assistant
 cp .envrc.example .envrc  # Add your secrets
 ./setup.sh
 ```
