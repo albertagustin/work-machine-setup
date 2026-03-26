@@ -5,13 +5,18 @@
 - [ ] Setup AWS CLI — configure profiles, SSO login, and connect to all work EKS clusters
 - [ ] Install GitHub Copilot CLI
 - [ ] Clone work repos:
-  - [ ] fastpass
-  - [ ] cd-mcp-server
-  - [ ] configs repos
-  - [ ] hubeks
-  - [ ] blueprints
-  - [ ] sharedeks
-  - [ ] ai-files
+  - [x] fastpass
+  - [x] fastpass-ai
+  - [x] fastpass-standard-template
+  - [x] fastpass-ui
+  - [x] ai-files
+  - [x] pl.aws.eks.non-prod.configs
+  - [x] pl.aws.eks.prod.configs
+  - [x] pl.tf.hubeks.render.aws
+  - [x] terraform.blueprint.aws
+  - [x] tf.blueprintstacks.aws
+  - [x] pl.tf.sharedeks.render.aws
+  - [x] cd-mcp-server
 
 ## Recommendations
 
