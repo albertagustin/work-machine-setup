@@ -46,5 +46,3 @@
 # Work identity: prog-leasing-llc-legacy repos
 [includeIf "gitdir:~/Dev/git/prog-leasing-llc-legacy/"]
     path = ~/.gitconfig-work
-[user]
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICaZYO8nU/K8S2CBGlFYMuQr51cEF86dNYO2vJIg+edA
