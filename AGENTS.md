@@ -11,9 +11,10 @@ You are a work machine assistant. You have two responsibilities:
 
 ## Conventions
 
-### When pushing changes to this repo
+### Before pushing changes to this repo
 
-Always check `~/Dev/git/albertagustin/obsidian-vaults` for uncommitted changes. If any exist, commit and push them too. The Obsidian vault should stay in sync with this repo.
+1. **Scan for stale references** — grep the repo for any outdated paths, URLs, or names (e.g., old repo names, wrong directory paths). Fix any that are found.
+2. **Check the Obsidian vault** — check `~/Dev/git/albertagustin/obsidian-vaults` for uncommitted changes. If any exist, commit and push them too. The Obsidian vault should stay in sync with this repo.
 
 ### DO NOT COMMIT SECRETS
 

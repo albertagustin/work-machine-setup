@@ -47,6 +47,7 @@ link "configs/starship/starship.toml" "$HOME/.config/starship.toml"
 # VSCode
 link "configs/vscode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
 link "configs/vscode/keybindings.json" "$HOME/Library/Application Support/Code/User/keybindings.json"
+link "configs/vscode/mcp.json" "$HOME/Library/Application Support/Code/User/mcp.json"
 
 # Claude Code
 link "configs/claude/settings.json" "$HOME/.claude/settings.json"

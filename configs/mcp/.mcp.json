@@ -3,6 +3,17 @@
     "cd-mcp-server": {
       "type": "url",
       "url": "https://dev-cd-mcp-server.eks.hub.aws.proginternal.com/mcp"
+    },
+    "atlassian": {
+      "type": "http",
+      "url": "https://mcp.atlassian.com/v1/mcp"
+    },
+    "observe": {
+      "type": "http",
+      "url": "https://182826133977.observeinc.com/v1/ai/mcp",
+      "headers": {
+        "Authorization": "Bearer 182826133977 ${OBSERVE_MCP_TOKEN}"
+      }
     }
   }
 }

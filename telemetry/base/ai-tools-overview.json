@@ -381,7 +381,7 @@
       }
     },
     {
-      "type": "table",
+      "type": "logs",
       "title": "Recent Events (Loki)",
       "gridPos": {
         "h": 8,
@@ -396,11 +396,19 @@
       "targets": [
         {
           "expr": "{service_name=~\"claude-code|github-copilot|copilot-chat\"}",
-          "refId": "A"
+          "refId": "A",
+          "queryType": "range"
         }
       ],
       "options": {
-        "showHeader": true
+        "showTime": true,
+        "showLabels": true,
+        "showCommonLabels": false,
+        "wrapLogMessage": true,
+        "prettifyLogMessage": false,
+        "enableLogDetails": true,
+        "sortOrder": "Descending",
+        "dedupStrategy": "none"
       }
     },
     {
@@ -838,7 +846,7 @@
       }
     },
     {
-      "type": "table",
+      "type": "logs",
       "title": "API Requests (Events)",
       "gridPos": {
         "h": 8,
@@ -852,13 +860,24 @@
       },
       "targets": [
         {
-          "expr": "{service_name=\"claude-code\", event_name=\"claude_code.api_request\"} | json",
-          "refId": "A"
+          "expr": "{service_name=\"claude-code\"} |= \"api_request\"",
+          "refId": "A",
+          "queryType": "range"
         }
-      ]
+      ],
+      "options": {
+        "showTime": true,
+        "showLabels": true,
+        "showCommonLabels": false,
+        "wrapLogMessage": true,
+        "prettifyLogMessage": false,
+        "enableLogDetails": true,
+        "sortOrder": "Descending",
+        "dedupStrategy": "none"
+      }
     },
     {
-      "type": "table",
+      "type": "logs",
       "title": "Tool Results (Events)",
       "gridPos": {
         "h": 8,
@@ -872,10 +891,21 @@
       },
       "targets": [
         {
-          "expr": "{service_name=\"claude-code\", event_name=\"claude_code.tool_result\"} | json",
-          "refId": "A"
+          "expr": "{service_name=\"claude-code\"} |= \"tool_result\"",
+          "refId": "A",
+          "queryType": "range"
         }
-      ]
+      ],
+      "options": {
+        "showTime": true,
+        "showLabels": true,
+        "showCommonLabels": false,
+        "wrapLogMessage": true,
+        "prettifyLogMessage": false,
+        "enableLogDetails": true,
+        "sortOrder": "Descending",
+        "dedupStrategy": "none"
+      }
     },
     {
       "type": "row",
