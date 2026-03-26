@@ -68,3 +68,7 @@ alias gb="git branch"
 alias gd="git diff"
 alias gds="git diff --staged"
 
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/albert.agustin/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

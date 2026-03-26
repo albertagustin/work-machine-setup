@@ -6,6 +6,7 @@ brew "direnv"         # Per-directory environment variables (.envrc)
 brew "zsh"            # Homebrew-managed ZSH (replaces macOS system zsh)
 brew "git"            # Version control
 brew "gh"             # GitHub CLI
+cask "copilot-cli"    # GitHub Copilot CLI
 brew "awscli"         # AWS CLI
 brew "jq"             # JSON processor
 brew "yq"             # YAML processor

@@ -1,0 +1,22 @@
+server:
+  persistentVolume:
+    size: 2Gi
+  resources:
+    requests:
+      cpu: 100m
+      memory: 256Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+  extraFlags:
+    - "web.enable-remote-write-receiver"
+
+# Disable components not needed for this evaluation
+alertmanager:
+  enabled: false
+kube-state-metrics:
+  enabled: false
+prometheus-node-exporter:
+  enabled: false
+prometheus-pushgateway:
+  enabled: false

@@ -1,6 +1,35 @@
-# Copy this file to .envrc and fill in your secrets.
+# Copy this file to .envrc and fill in your values.
 # .envrc is gitignored and loaded by direnv (or sourced manually in .zshrc).
-#
-# Example:
+
+# =============================================================================
+# AI Tool Telemetry — OTEL Configuration
+# =============================================================================
+# Deploy the telemetry stack first: ./telemetry/deploy.sh
+# Then update the endpoint below to match your setup.
+
+# Shared OTEL
+# export OTEL_EXPORTER_OTLP_ENDPOINT="http://otel.local"
+# export OTEL_EXPORTER_OTLP_PROTOCOL="http/protobuf"
+# export OTEL_RESOURCE_ATTRIBUTES="department=platform,team.id=shared-services"
+
+# Claude Code
+# export CLAUDE_CODE_ENABLE_TELEMETRY=1
+# export OTEL_METRICS_EXPORTER="otlp"
+# export OTEL_LOGS_EXPORTER="otlp"
+# export OTEL_LOG_USER_PROMPTS=1
+# export OTEL_LOG_TOOL_DETAILS=1
+
+# Copilot CLI
+# export COPILOT_OTEL_ENABLED="true"
+# export COPILOT_OTEL_EXPORTER_TYPE="otlp-http"
+# export OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT="true"
+
+# VS Code Copilot (env vars — also configurable via VS Code settings)
+# export COPILOT_OTEL_ENDPOINT="http://otel.local"
+# export COPILOT_OTEL_CAPTURE_CONTENT="true"
+
+# =============================================================================
+# Secrets
+# =============================================================================
 # export GITHUB_TOKEN="ghp_xxxxxxxxxxxx"
 # export OPENAI_API_KEY="sk-xxxxxxxxxxxx"

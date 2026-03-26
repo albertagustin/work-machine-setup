@@ -3,7 +3,7 @@
 ## High Priority
 
 - [ ] Setup AWS CLI — configure profiles, SSO login, and connect to all work EKS clusters
-- [ ] Install GitHub Copilot CLI
+- [x] Install GitHub Copilot CLI
 - [ ] Clone work repos:
   - [x] fastpass
   - [x] fastpass-ai
