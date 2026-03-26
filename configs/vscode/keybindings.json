@@ -1,0 +1,11 @@
+// Empty
+[
+    {
+        "key": "cmd+d",
+        "command": "workbench.action.splitEditor"
+    },
+    {
+        "key": "cmd+k left",
+        "command": "-workbench.action.splitEditor"
+    }
+]

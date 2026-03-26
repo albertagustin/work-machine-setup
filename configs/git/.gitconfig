@@ -1,0 +1,50 @@
+[init]
+    defaultBranch = main
+
+[pull]
+    rebase = true
+
+[push]
+    autoSetupRemote = true
+
+[fetch]
+    prune = true
+
+[core]
+    editor = code --wait
+
+[diff]
+    tool = vscode
+
+[difftool "vscode"]
+    cmd = code --wait --diff $LOCAL $REMOTE
+
+[merge]
+    tool = vscode
+
+[mergetool "vscode"]
+    cmd = code --wait $MERGED
+
+# 1Password SSH agent
+[gpg]
+    format = ssh
+
+[gpg "ssh"]
+    program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+
+[commit]
+    gpgsign = true
+
+# Identity: default to personal
+[include]
+    path = ~/.gitconfig-personal
+
+# Work identity: prog-leasing-llc repos
+[includeIf "gitdir:~/Dev/git/prog-leasing-llc/"]
+    path = ~/.gitconfig-work
+
+# Work identity: prog-leasing-llc-legacy repos
+[includeIf "gitdir:~/Dev/git/prog-leasing-llc-legacy/"]
+    path = ~/.gitconfig-work
+[user]
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICaZYO8nU/K8S2CBGlFYMuQr51cEF86dNYO2vJIg+edA

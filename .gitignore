@@ -1,0 +1,8 @@
+# Secrets
+.envrc
+
+# OS
+.DS_Store
+
+# Claude Code local/session data (machine-specific, not config)
+.claude/

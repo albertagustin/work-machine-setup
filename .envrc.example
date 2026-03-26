@@ -1,0 +1,6 @@
+# Copy this file to .envrc and fill in your secrets.
+# .envrc is gitignored and loaded by direnv (or sourced manually in .zshrc).
+#
+# Example:
+# export GITHUB_TOKEN="ghp_xxxxxxxxxxxx"
+# export OPENAI_API_KEY="sk-xxxxxxxxxxxx"

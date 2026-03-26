@@ -1,0 +1,247 @@
+{
+  "workbench.iconTheme": "material-icon-theme",
+  "atomKeymap.promptV3Features": true,
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.formatOnPaste": true,
+  "workbench.colorTheme": "Monokai",
+  "materialTheme.cache.workbench.settings": {
+    "themeColours": "Light"
+  },
+  "terminal.external.osxExec": "/Applications/Warp.app",
+  "sync.gist": "3717db50b848724c57228bec372965af",
+  "sync.autoDownload": true,
+  "sync.autoUpload": true,
+  "sync.forceDownload": false,
+  "sync.quietSync": true,
+  "sync.askGistName": false,
+  "gitProjectManager.baseProjectsFolders": [
+    "/Users/aagusti/git/gap",
+    "/Users/aagusti/git/community",
+    "/Users/albertagustin/git/albertagustin"
+  ],
+  "editor.wordWrap": "on",
+  "editor.fontSize": 13,
+  "python.linting.pylintArgs": ["--errors-only", "--disable=E1101"],
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/.cache": true,
+    "**/.eggs": true,
+    "**/*.pyc": true,
+    "**/__pycache__": true,
+    "**/*.egg-info": true,
+    "**/.pytest_cache": true,
+    "**/.gradle": true,
+    "**/node_modules": false,
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
+  },
+  "material-icon-theme.showUpdateMessage": false,
+  "explorer.confirmDragAndDrop": false,
+  "git.autofetch": true,
+  "sync.removeExtensions": true,
+  "sync.syncExtensions": true,
+  "python.autoComplete.extraPaths": [],
+  "ruby.codeCompletion": "rcodetools",
+  "ruby.intellisense": "rubyLocate",
+  "ruby.lint": {
+    "rubocop": true
+  },
+  "ruby.format": "rubocop",
+  "rubocop.configFile": "~/.rubocop.yml",
+  "json.format.enable": true,
+  "json.trace.server": "verbose",
+  "workbench.startupEditor": "newUntitledFile",
+  "python.venvPath": "~/.local/share/virtualenvs/",
+  "yaml.format.enable": true,
+  "explorer.confirmDelete": false,
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "extensions.ignoreRecommendations": false,
+  "terminal.integrated.rendererType": "dom",
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "vsnotes.defaultNotePath": "/Users/aagustin/Development/git/albertagustin/vsnotes",
+  "editor.tabCompletion": "on",
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "python.jediEnabled": false,
+  "go.useLanguageServer": true,
+  "vs-kubernetes": {
+    "vscode-kubernetes.helm-path": "/usr/local/bin/helm",
+    "vscode-kubernetes.kubectl-path": "/usr/local/bin/kubectl",
+    "vscode-kubernetes.minikube-path": "/usr/local/bin/minikube",
+    "vscode-kubernetes.minikube-path.mac": "/Users/albert.agustin/.vs-kubernetes/tools/minikube/darwin-arm64/minikube",
+    "vs-kubernetes.crd-code-completion": "disabled",
+    "vs-kubernetes.ignore-recommendations": true,
+    "vscode-kubernetes.helm-path.mac": "/Users/albert.agustin/.vs-kubernetes/tools/helm/darwin-arm64/helm",
+    "vscode-kubernetes.kubectl-path.mac": "/Users/albert.agustin/.vs-kubernetes/tools/kubectl/kubectl"
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb"
+  },
+  "files.associations": {
+    "*.yml": "yaml",
+    ".gitconfig-personal": "properties",
+    ".gitconfig-work": "properties",
+    "*.Brewfile": "ruby"
+  },
+  "[arm-template]": {
+    "editor.defaultFormatter": "msazurermtools.azurerm-vscode-tools"
+  },
+  "java.project.importOnFirstTimeStartup": "automatic",
+  "azureResourceManagerTools.parameterFiles": {
+    "/Users/aagusti/git/gap/cloudexecution/azure-quickstart-templates/sqlserver-with-audit-tde/template_v2.json": "parameters_v2.json",
+    "/Users/aagusti/git/gap/cloudexecution/azure-quickstart-templates/functionapp/template.json": "parameters.json",
+    "/Users/aagusti/git/gap/cloudexecution/azure-quickstart-templates/function-app/template.json": "parameters.json",
+    "/Users/aagusti/git/gap/cloudexecution/vdc/commonPatterns/streaming/ArtifactsScenario2/Databricksdeploy.json": "Databricksdeploy.parameters.json",
+    "/Users/aagusti/git/gap/cloudexecution/azure-quickstart-templates/databricks/template.json": "parameters.json"
+  },
+  "python.showStartPage": false,
+  "python.analysis.extraPaths": [
+    "/Users/albertagustin/.local/share/virtualenvs/"
+  ],
+  "python.languageServer": "Default",
+  "go.toolsManagement.autoUpdate": true,
+  "markdownlint.config": {
+    "MD033": false
+  },
+  "rest-client.environmentVariables": {
+    "$shared": {}
+  },
+  "redhat.telemetry.enabled": true,
+  "security.workspace.trust.untrustedFiles": "open",
+  "terminal.explorerKind": "external",
+  "terminal.integrated.profiles.osx": {
+    "bash": {
+      "path": "bash",
+      "args": ["-l"],
+      "icon": "terminal-bash"
+    },
+    "zsh": {
+      "path": "zsh",
+      "args": ["-l"]
+    },
+    "fish": {
+      "path": "fish",
+      "args": ["-l"]
+    },
+    "tmux": {
+      "path": "tmux",
+      "icon": "terminal-tmux"
+    },
+    "pwsh": {
+      "path": "pwsh",
+      "icon": "terminal-powershell"
+    }
+  },
+  "python.defaultInterpreterPath": "",
+  "yaml.schemaStore.enable": false,
+  "yaml.schemas": {},
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "json.schemaDownload.enable": false,
+  "[markdown]": {
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+  },
+  "editor.guides.bracketPairs": "active",
+  "[python]": {
+    "editor.formatOnType": true,
+    "editor.defaultFormatter": "ms-python.autopep8"
+  },
+  "mssql.connections": [
+    {
+      "server": "127.0.0.1",
+      "database": "",
+      "authenticationType": "SqlLogin",
+      "user": "sqlserver",
+      "password": "",
+      "emptyPasswordInput": false,
+      "savePassword": true,
+      "profileName": "Test Sonarqube DB",
+      "encrypt": "Mandatory",
+      "trustServerCertificate": true
+    },
+    {
+      "server": "127.0.0.1",
+      "database": "",
+      "authenticationType": "SqlLogin",
+      "user": "sqlserver",
+      "password": "",
+      "emptyPasswordInput": false,
+      "savePassword": true,
+      "profileName": "Prod Sonarqube DB",
+      "encrypt": "Mandatory",
+      "trustServerCertificate": true,
+      "connectTimeout": 15,
+      "commandTimeout": 30,
+      "applicationName": "vscode-mssql"
+    }
+  ],
+  "mssql.objectExplorer.groupBySchema": false,
+  "window.commandCenter": true,
+  "diffEditor.maxComputationTime": 0,
+  "yaml.customTags": [
+    "!And",
+    "!And sequence",
+    "!If",
+    "!If sequence",
+    "!Not",
+    "!Not sequence",
+    "!Equals",
+    "!Equals sequence",
+    "!Or",
+    "!Or sequence",
+    "!FindInMap",
+    "!FindInMap sequence",
+    "!Base64",
+    "!Join",
+    "!Join sequence",
+    "!Cidr",
+    "!Ref",
+    "!Sub",
+    "!Sub sequence",
+    "!GetAtt",
+    "!GetAZs",
+    "!ImportValue",
+    "!ImportValue sequence",
+    "!Select",
+    "!Select sequence",
+    "!Split",
+    "!Split sequence"
+  ],
+  "aws.telemetry": false,
+  "terminal.integrated.fontFamily": "FiraCode Nerd Font Mono",
+  "settingsSync.ignoredSettings": [
+    "-vscode-kubernetes.kubectl-path.mac",
+    "-vscode-kubernetes.kubectl-path",
+    "-vscode-kubernetes.kubectl-path-mac"
+  ],
+  "vscode-kubernetes.kubectl-path": "/opt/homebrew/bin/kubectl",
+  "workbench.settings.applyToAllProfiles": [
+    "vscode-kubernetes.kubectl-path.mac"
+  ],
+  "vscode-kubernetes.kubectl-path-mac": "/opt/homebrew/bin/kubectl",
+  "circleci.hostUrl": "",
+  "circleci.notifications.areActive": "no",
+  "flake8.args": [
+    "--ignore=E501,W291,F401,E402,F811"
+  ],
+  "aws.cloudformation.telemetry.enabled": false
+}

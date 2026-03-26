@@ -1,0 +1,18 @@
+# 1Password SSH agent — auto-generated key-to-host mappings
+Include ~/.ssh/1Password/config
+
+# 1Password SSH agent
+Host *
+    IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+
+# Work GitHub account (default — github.com)
+Host github.com
+    HostName github.com
+    User git
+    IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+
+# Personal GitHub account (use github.com-personal as host alias)
+Host github.com-personal
+    HostName github.com
+    User git
+    IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
