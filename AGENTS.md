@@ -19,6 +19,10 @@ Always check `~/Dev/git/albertagustin/obsidian-vaults` for uncommitted changes. 
 
 No API keys, tokens, passwords, or credentials should ever be committed to this repo or the Obsidian vault, under any circumstances.
 
+### Kubernetes / Telemetry changes
+
+All changes to the telemetry stack and k8s resources must be made to files in `telemetry/`, then applied to the cluster. Do not make changes directly to the cluster — they will be lost on teardown and won't be reproducible on a new machine. The repo is the source of truth; the cluster is a deployment target.
+
 ### Secrets management
 
 Secrets go in `.envrc` (gitignored). Copy `.envrc.example` as a starting point.
@@ -48,6 +52,12 @@ configs/
   warp/                        # Warp terminal configs (symlinked to ~/.warp)
 docs/
   TODO.md                      # Pending setup tasks and recommendations
+  MANUAL_SETUP.md              # Manual steps for new machine provisioning
+telemetry/
+  deploy.sh                    # Deploy full telemetry stack
+  teardown.sh                  # Tear down full telemetry stack
+  base/                        # Kustomize resources (namespace, ingress, dashboard ConfigMaps)
+  helm-values/                 # Helm values for Grafana stack + OTEL Collector
 ```
 
 ## Adding a new tool

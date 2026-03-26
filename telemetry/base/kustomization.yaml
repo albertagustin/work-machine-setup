@@ -6,3 +6,13 @@ namespace: observability
 resources:
   - namespace.yaml
   - ingress.yaml
+
+configMapGenerator:
+  - name: grafana-dashboards
+    namespace: observability
+    files:
+      - ai-tools-overview.json
+    options:
+      labels:
+        grafana_dashboard: "1"
+      disableNameSuffixHash: true
