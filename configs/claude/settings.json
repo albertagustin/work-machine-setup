@@ -1,7 +1,40 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git fetch:*)"
+      "Bash(git fetch:*)",
+      "Skill(update-config)",
+      "Skill(update-config:*)"
+    ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/albert.agustin/Dev/git/albert-agustin_progtech/ai-files/hooks/workflow-autolog.sh",
+            "timeout": 30
+          },
+          {
+            "type": "command",
+            "command": "/Users/albert.agustin/Dev/git/albert-agustin_progtech/ai-files/hooks/copilot-autolog.sh",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/albert.agustin/Dev/git/albert-agustin_progtech/ai-files/hooks/capture-reminder.sh",
+            "timeout": 10
+          }
+        ]
+      }
     ]
   }
 }

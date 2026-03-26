@@ -33,6 +33,9 @@ if [ -f "$REPO_DIR/.envrc" ]; then
   set +a
 fi
 
+# --- Node.js TLS (skip cert validation for internal MCP servers with private CAs) ---
+export NODE_TLS_REJECT_UNAUTHORIZED=0
+
 # --- PATH additions ---
 export PATH="$HOME/.rd/bin:$PATH"  # Rancher Desktop (docker, helm, nerdctl)
 

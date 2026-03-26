@@ -6,3 +6,9 @@
 
 # Claude Code local/session data (machine-specific, not config)
 .claude/
+
+# MCP config symlink in project root (source of truth is configs/mcp/.mcp.json)
+/.mcp.json
+
+# Machine-specific CA certs
+configs/certs/

@@ -12,7 +12,7 @@
   "version": 1,
   "refresh": "30s",
   "time": {
-    "from": "now-24h",
+    "from": "now-3h",
     "to": "now"
   },
   "templating": {
@@ -1101,21 +1101,10 @@
       },
       "targets": [
         {
-          "queryType": "traceqlSearch",
-          "filters": [
-            {
-              "id": "service-name",
-              "tag": "service.name",
-              "operator": "=~",
-              "value": [
-                "github-copilot",
-                "copilot-chat"
-              ],
-              "scope": "resource"
-            }
-          ],
-          "limit": 20,
-          "refId": "A"
+          "queryType": "traceql",
+          "query": "{resource.service.name =~ \"github-copilot|copilot-chat\"}",
+          "refId": "A",
+          "limit": 20
         }
       ]
     },
@@ -1384,20 +1373,10 @@
       },
       "targets": [
         {
-          "queryType": "traceqlSearch",
-          "filters": [
-            {
-              "id": "service-name",
-              "tag": "service.name",
-              "operator": "=",
-              "value": [
-                "copilot-chat"
-              ],
-              "scope": "resource"
-            }
-          ],
-          "limit": 20,
-          "refId": "A"
+          "queryType": "traceql",
+          "query": "{resource.service.name = \"copilot-chat\"}",
+          "refId": "A",
+          "limit": 20
         }
       ]
     },
@@ -1633,20 +1612,10 @@
       },
       "targets": [
         {
-          "queryType": "traceqlSearch",
-          "filters": [
-            {
-              "id": "service-name",
-              "tag": "service.name",
-              "operator": "=",
-              "value": [
-                "github-copilot"
-              ],
-              "scope": "resource"
-            }
-          ],
-          "limit": 20,
-          "refId": "A"
+          "queryType": "traceql",
+          "query": "{resource.service.name = \"github-copilot\"}",
+          "refId": "A",
+          "limit": 20
         }
       ]
     }

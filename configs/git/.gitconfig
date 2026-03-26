@@ -46,3 +46,9 @@
 # Work identity: prog-leasing-llc-legacy repos
 [includeIf "gitdir:~/Dev/git/prog-leasing-llc-legacy/"]
     path = ~/.gitconfig-work
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential

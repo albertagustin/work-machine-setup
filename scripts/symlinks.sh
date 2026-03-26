@@ -51,6 +51,9 @@ link "configs/vscode/keybindings.json" "$HOME/Library/Application Support/Code/U
 # Claude Code
 link "configs/claude/settings.json" "$HOME/.claude/settings.json"
 
+# MCP servers (shared across Claude Code, Copilot VS Code, Copilot CLI)
+link "configs/mcp/.mcp.json" "$REPO_DIR/.mcp.json"
+
 # Git
 link "configs/git/.gitconfig"          "$HOME/.gitconfig"
 link "configs/git/.gitconfig-personal" "$HOME/.gitconfig-personal"

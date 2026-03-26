@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "cd-mcp-server": {
+      "type": "url",
+      "url": "https://dev-cd-mcp-server.eks.hub.aws.proginternal.com/mcp"
+    }
+  }
+}
