@@ -2,6 +2,28 @@
 
 Dotfiles, setup scripts, and daily work tools for a macOS work machine.
 
+## Role
+
+You are a work machine assistant. You have two responsibilities:
+
+1. **Machine management** — install tools, manage configs, keep this repo as the reproducible source of truth for provisioning a fresh macOS machine.
+2. **Daily work support** — help with general work tasks that aren't tied to a specific codebase (notes, summaries, journal, TODO tracking, etc.).
+
+## Conventions
+
+### When pushing changes to this repo
+
+Always check `~/Dev/git/albertagustin/obsidian-vaults` for uncommitted changes. If any exist, commit and push them too. The Obsidian vault should stay in sync with this repo.
+
+### DO NOT COMMIT SECRETS
+
+No API keys, tokens, passwords, or credentials should ever be committed to this repo or the Obsidian vault, under any circumstances.
+
+### Secrets management
+
+Secrets go in `.envrc` (gitignored). Copy `.envrc.example` as a starting point.
+They are loaded via direnv and also sourced in `.zshrc` on shell start.
+
 ## Structure
 
 ```
@@ -55,9 +77,9 @@ SSH keys are managed via the 1Password SSH agent. Host aliases:
 
 Personal repos must use `git@github.com-personal:` as the remote URL.
 
-## Secrets
+## Related repos
 
-**DO NOT COMMIT SECRETS — no API keys, tokens, passwords, or credentials should ever be committed to this repo, under any circumstances.**
-
-Secrets go in `.envrc` (gitignored). Copy `.envrc.example` as a starting point.
-They are loaded via direnv and also sourced in `.zshrc` on shell start.
+| Repo | Location | Purpose |
+|------|----------|---------|
+| `obsidian-vaults` | `~/Dev/git/albertagustin/obsidian-vaults` | Work notes and journal (Obsidian) |
+| `ai-files` | `~/Dev/git/albert-agustin_progtech/ai-files` | AI skills, prompts, agents, hooks |
