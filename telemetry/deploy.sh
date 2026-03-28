@@ -39,6 +39,12 @@ echo "==> Deploying Grafana..."
 helm upgrade --install grafana grafana/grafana \
   -n "$NAMESPACE" -f "$VALUES_DIR/grafana.yaml" --wait
 
+# Configure macOS launcher environment for VS Code Copilot OTEL (if on macOS)
+if [[ "$(uname -s)" == "Darwin" && -x "$SCRIPT_DIR/configure-vscode-copilot-otel-macos.sh" ]]; then
+  echo "==> Configuring VS Code Copilot OTEL (macOS)..."
+  "$SCRIPT_DIR/configure-vscode-copilot-otel-macos.sh"
+fi
+
 echo ""
 echo "==> Telemetry stack deployed!"
 echo ""

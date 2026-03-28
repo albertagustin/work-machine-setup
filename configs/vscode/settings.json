@@ -176,7 +176,9 @@
       "savePassword": true,
       "profileName": "Test Sonarqube DB",
       "encrypt": "Mandatory",
-      "trustServerCertificate": true
+      "trustServerCertificate": true,
+      "groupId": "ROOT",
+      "id": "e471207e-e4bf-4bd7-aae6-81fb0f5df81b"
     },
     {
       "server": "127.0.0.1",
@@ -191,7 +193,9 @@
       "trustServerCertificate": true,
       "connectTimeout": 15,
       "commandTimeout": 30,
-      "applicationName": "vscode-mssql"
+      "applicationName": "vscode-mssql",
+      "groupId": "ROOT",
+      "id": "3f8a547c-ff39-4ff1-b5ca-d2fffbbc2888"
     }
   ],
   "mssql.objectExplorer.groupBySchema": false,
@@ -249,8 +253,23 @@
   // GitHub Copilot OTEL telemetry
   "github.copilot.chat.otel.enabled": true,
   "github.copilot.chat.otel.exporterType": "otlp-http",
-  "github.copilot.chat.otel.otlpEndpoint": "http://otel.local",
+  "github.copilot.chat.otel.otlpEndpoint": "http://localhost:4318",
   "github.copilot.chat.otel.captureContent": true,
-  "chat.viewSessions.orientation": "stacked",
-  "github.copilot.chat.copilotMemory.enabled": true
+  "github.copilot.chat.copilotMemory.enabled": true,
+  "github.copilot.chat.agent.autoFix": true,
+  "github.copilot.chat.rateLimitAutoSwitchToAuto": true,
+  "github.copilot.chat.backgroundCompaction": true,
+  "github.copilot.chat.codesearch.enabled": true,
+  "github.copilot.chat.conversationTranscriptLookup.enabled": true,
+  "github.copilot.chat.githubMcpServer.enabled": true,
+  "github.copilot.chat.switchAgent.enabled": true,
+  "window.autoDetectColorScheme": true,
+  "mssql.connectionGroups": [
+    {
+      "name": "ROOT",
+      "id": "ROOT"
+    }
+  ],
+  "github.copilot.chat.otel.dbSpanExporter.enabled": true,
+  "chat.viewSessions.orientation": "stacked"
 }

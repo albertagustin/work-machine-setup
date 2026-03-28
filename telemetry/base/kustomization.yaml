@@ -6,6 +6,7 @@ namespace: observability
 resources:
   - namespace.yaml
   - ingress.yaml
+  - otel-nodeport.yaml
 
 configMapGenerator:
   - name: grafana-dashboards

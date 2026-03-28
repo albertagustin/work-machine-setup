@@ -3,7 +3,14 @@
     "allow": [
       "Bash(git fetch:*)",
       "Skill(update-config)",
-      "Skill(update-config:*)"
+      "Skill(update-config:*)",
+      "mcp__cd-mcp-server__servicenow_get_ci",
+      "mcp__cd-mcp-server__atlas_search_containers_by_description",
+      "mcp__cd-mcp-server__servicenow_get_incidents_by_ci",
+      "mcp__cd-mcp-server__atlas_get_direct_cycles",
+      "mcp__cd-mcp-server__atlas_get_container_relationships",
+      "mcp__observe__generate-service-map",
+      "mcp__cd-mcp-server__servicenow_get_changes_by_ci"
     ]
   },
   "hooks": {
@@ -36,5 +43,8 @@
         ]
       }
     ]
+  },
+  "enabledPlugins": {
+    "skill-creator@claude-plugins-official": true
   }
 }

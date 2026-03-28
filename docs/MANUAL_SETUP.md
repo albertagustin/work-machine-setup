@@ -127,7 +127,16 @@ cd ~/Dev/git/albertagustin/work-machine-assistant
 direnv allow
 ```
 
-## 13. Obsidian
+## 13. Claude Code Plugins
+
+Plugins can't be installed declaratively — they must be installed via the CLI. The `enabledPlugins` setting in `configs/claude/settings.json` controls which are active, but installation is manual.
+
+```bash
+# In any Claude Code session:
+/plugin install skill-creator@claude-plugins-official
+```
+
+## 14. Obsidian
 
 1. Clone the vault repo: `git clone git@github.com-personal:albertagustin/obsidian-vaults.git ~/Dev/git/albertagustin/obsidian-vaults`
 2. Open Obsidian > "Open folder as vault" > point to `~/Dev/git/albertagustin/obsidian-vaults`

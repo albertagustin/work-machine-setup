@@ -6,10 +6,10 @@ mode: deployment
 resources:
   requests:
     cpu: 100m
-    memory: 128Mi
+    memory: 512Mi
   limits:
     cpu: 500m
-    memory: 256Mi
+    memory: 512Mi
 
 ports:
   otlp:
@@ -44,6 +44,19 @@ config:
         - key: environment
           value: local-eval
           action: upsert
+    groupbytrace:
+      wait_duration: 10s
+      num_traces: 100000
+    transform/fix-orphan-roots:
+      trace_statements:
+        - context: span
+          statements:
+            # VS Code Copilot Chat never exports the invoke_agent root span,
+            # leaving all child spans orphaned. Promote every copilot-chat
+            # span to root so Tempo can index the trace by service name.
+            # Spans still share the same trace ID so the trace view is intact.
+            - set(parent_span_id, SpanID(0x0000000000000000))
+              where resource.attributes["service.name"] == "copilot-chat"
 
   exporters:
     otlphttp/tempo:
@@ -65,7 +78,7 @@ config:
     pipelines:
       traces:
         receivers: [otlp]
-        processors: [batch, resource]
+        processors: [groupbytrace, transform/fix-orphan-roots, batch, resource]
         exporters: [otlphttp/tempo]
       metrics:
         receivers: [otlp]

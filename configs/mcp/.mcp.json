@@ -1,7 +1,7 @@
 {
   "mcpServers": {
     "cd-mcp-server": {
-      "type": "url",
+      "type": "http",
       "url": "https://dev-cd-mcp-server.eks.hub.aws.proginternal.com/mcp"
     },
     "atlassian": {
